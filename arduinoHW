@@ -1,0 +1,25 @@
+const unsigned led = 13;
+const unsigned rate = 9600;
+
+void setup(){
+  Serial.begin(rate);
+  pinMode(led,OUTPUT);
+}
+int cmd = 0;
+void loop(){
+  if(Serial.available()>0){
+
+    cmd = Serial.read();
+    if(cmd=='1'){
+      digitalWrite(led,HIGH);
+      Serial.println("Hi");
+    }
+    else{
+      digitalWrite(led,LOW);
+      Serial.println("NO");
+    }
+
+  }
+
+}
+
